@@ -7,13 +7,13 @@ import { NextRequest, NextResponse } from "next/server"
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
 
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get("x-forwarded-for") ?? "anonymous"
-  const { success } = await recapRatelimit.limit(ip)
-  if (!success) {
-    return NextResponse.json({ error: "Too many requests" }, { status: 429 })
-  }
-
   try {
+    const ip = request.headers.get("x-forwarded-for") ?? "anonymous"
+    const { success } = await recapRatelimit.limit(ip)
+    if (!success) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 })
+    }
+
     const { roomCode, prompt, score } = await request.json()
     const questions = await convex.query(api.questions.getQuestions, {
       roomCode,
