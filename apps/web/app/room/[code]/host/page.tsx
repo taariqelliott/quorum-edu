@@ -1,15 +1,15 @@
 "use client"
 
-import { useState } from "react"
-import { useQuery, useMutation } from "convex/react"
-import { api } from "@convex/api"
-import { useParams } from "next/navigation"
-import { Button } from "@workspace/ui/components/button"
 import { QuestionCard } from "@/components/QuestionCard"
-import { VoteTally } from "@/components/VoteTally"
-import { ScoreBoard, FinalScoreBoard } from "@/components/ScoreBoard"
 import { RecapPDF } from "@/components/RecapPDF"
+import { FinalScoreBoard, ScoreBoard } from "@/components/ScoreBoard"
+import { VoteTally } from "@/components/VoteTally"
+import { api } from "@convex/api"
+import { Button } from "@workspace/ui/components/button"
+import { useMutation, useQuery } from "convex/react"
 import Link from "next/link"
+import { useParams } from "next/navigation"
+import { useState } from "react"
 
 export default function HostView() {
   const params = useParams()
@@ -34,6 +34,7 @@ export default function HostView() {
   )
 
   const advanceQuestion = useMutation(api.rooms.advanceQuestion)
+  const previousQuestion = useMutation(api.rooms.previousQuestion)
   const [revealed, setRevealed] = useState(false)
 
   if (room === undefined || room === null) {
@@ -70,16 +71,29 @@ export default function HostView() {
     <main className="mx-auto flex min-h-svh w-full max-w-3xl flex-col items-center gap-8 p-8">
       <div className="flex w-full items-center justify-between gap-4">
         <ScoreBoard score={room.score} currentQuestion={room.currentQuestion} />
-        <Button
-          size="lg"
-          onClick={() => {
-            setRevealed(false)
-            advanceQuestion({ code })
-          }}
-          disabled={question === undefined}
-        >
-          {isLastQuestion ? "End Game" : "Next Question →"}
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => {
+              setRevealed(false)
+              previousQuestion({ code })
+            }}
+            disabled={question === undefined || room.currentQuestion === 0}
+          >
+            ← Previous
+          </Button>
+          <Button
+            size="lg"
+            onClick={() => {
+              setRevealed(false)
+              advanceQuestion({ code })
+            }}
+            disabled={question === undefined}
+          >
+            {isLastQuestion ? "End Game" : "Next Question →"}
+          </Button>
+        </div>
       </div>
 
       {question && (
