@@ -2,11 +2,27 @@
 
 An AI-powered live quiz game for classrooms. Teachers describe a topic, Quorum generates a 10-question game in seconds, and students join from their phones with a room code — no accounts or downloads required.
 
+### Meaning
+
+quo·​rum
+
+**pluralquorums *or* quora** [ˈkwȯr-ə](https://www.merriam-webster.com/dictionary/quorum?pronunciation&lang=en_us&dir=q&file=quora) 
+
+**1:** the minimum number of officers or members of a body that is required to be present at a given meeting (as to transact business)
+
+---
+
+# Test The App Out!
+
+++**[quorum-edu.vercel.app](http://quorum-edu.vercel.app)**++
+
+### **Resources**
+
 ## How It Works
 
 ### For Teachers (Host)
 
-1. Go to the home page and describe what you want to teach (e.g. _"help my students learn about the American Revolution"_)
+1. Go to the home page and describe what you want to teach (e.g. *"help my students learn about the American Revolution"*)
 2. Quorum uses AI to generate 10 multiple-choice questions on that topic
 3. A waiting room opens with a **QR code** and a **6-character room code** — share either with students
 4. Once students have joined, click **Start Game**
@@ -53,3 +69,4 @@ ANTHROPIC_API_KEY=
 CONVEX_DEPLOYMENT=
 NEXT_PUBLIC_CONVEX_URL=
 ```
+
