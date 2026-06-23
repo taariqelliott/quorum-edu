@@ -21,7 +21,7 @@ export function VoteOptions({ options, selected, onVote }: VoteOptionsProps) {
           key={opt}
           disabled={selected !== null}
           onClick={() => onVote(opt)}
-          className={`rounded-2xl p-5 text-white text-base font-semibold text-left leading-snug transition-all active:scale-95 disabled:cursor-default ${COLORS[i]} ${
+          className={`rounded-2xl px-5 py-6 min-h-[88px] text-white text-lg font-semibold text-left leading-snug transition-all active:scale-95 disabled:cursor-default shadow-md ${COLORS[i]} ${
             selected === opt ? "ring-4 ring-white ring-offset-2" : ""
           } ${selected !== null && selected !== opt ? "opacity-50" : ""}`}
         >

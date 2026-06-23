@@ -78,30 +78,47 @@ function PlayView({ code }: { code: string }) {
 
   if (room.status === "waiting") {
     return (
-      <main className="flex min-h-svh flex-col items-center justify-center p-6 gap-4 text-center">
-        <div className="text-5xl">⏳</div>
-        <h1 className="text-2xl font-bold">Waiting for teacher to start...</h1>
-        <p className="text-sm text-muted-foreground font-mono">{name}</p>
+      <main className="flex min-h-svh flex-col items-center justify-center p-6 gap-6 text-center">
+        <div className="flex flex-col items-center gap-2">
+          <div className="relative flex size-16 items-center justify-center rounded-full bg-primary/15">
+            <div className="absolute inset-0 animate-ping rounded-full bg-primary/20" />
+            <div className="size-5 rounded-full bg-primary" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h1 className="text-2xl font-bold">You&apos;re in!</h1>
+          <p className="text-muted-foreground">Waiting for your teacher to start the game…</p>
+        </div>
+        <div className="rounded-full border border-border bg-card px-4 py-2 text-sm font-mono text-muted-foreground shadow-sm">
+          {name}
+        </div>
       </main>
     )
   }
 
   if (room.status === "finished") {
     return (
-      <main className="flex min-h-svh flex-col p-6 gap-6">
-        <div className="text-center flex flex-col gap-3">
-          <h1 className="text-2xl font-bold">Game Over!</h1>
+      <main className="flex min-h-svh flex-col p-5 gap-6">
+        <div className="flex flex-col items-center gap-3 text-center pt-4">
+          <h1 className="text-3xl font-bold">Game Over!</h1>
           <FinalScoreBoard score={room.score} />
         </div>
-        <div className="flex flex-col gap-4 pb-8">
+        <div className="flex flex-col gap-1 pb-2">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground px-1 mb-2">
+            Answer Key
+          </p>
           {allQuestions?.map((q) => (
-            <div key={q._id} className="flex flex-col gap-2 rounded-xl border p-4">
-              <p className="font-semibold">
-                Q{q.index + 1}: {q.question}
+            <div key={q._id} className="flex flex-col gap-2 rounded-2xl border border-border bg-card p-4 shadow-sm">
+              <p className="text-sm font-semibold leading-snug">
+                Q{q.index + 1}. {q.question}
               </p>
-              <p className="text-sm font-medium text-green-600">✓ {q.correctAnswer}</p>
-              <p className="text-sm text-muted-foreground">{q.definition}</p>
-              <p className="text-sm text-muted-foreground italic">{q.example}</p>
+              <div className="flex items-center gap-2 rounded-lg bg-green-500/10 px-3 py-2">
+                <span className="text-green-600 font-bold text-sm">✓</span>
+                <span className="text-sm font-medium text-green-700 dark:text-green-400">{q.correctAnswer}</span>
+              </div>
+              {q.definition && (
+                <p className="text-xs text-muted-foreground leading-relaxed">{q.definition}</p>
+              )}
             </div>
           ))}
         </div>
@@ -113,14 +130,15 @@ function PlayView({ code }: { code: string }) {
   const hasVoted = myVote !== null && myVote !== undefined
 
   return (
-    <main className="flex min-h-svh flex-col p-6 gap-6">
+    <main className="flex min-h-svh flex-col p-5 gap-8">
       {question && <QuestionCard question={question.question} index={question.index} />}
 
       {hasVoted ? (
-        <div className="flex flex-col gap-4">
-          <p className="text-sm text-muted-foreground text-center">
-            You voted: <span className="font-medium">{myVote?.answer}</span>
-          </p>
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-3 shadow-sm">
+            <span className="text-sm text-muted-foreground">Your answer:</span>
+            <span className="text-sm font-semibold">{myVote?.answer}</span>
+          </div>
           {question && votes && (
             <VoteTally options={question.options} votes={votes} />
           )}

@@ -5,11 +5,11 @@ interface QuestionCardProps {
 
 export function QuestionCard({ question, index }: QuestionCardProps) {
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+    <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 shadow-sm">
+      <span className="inline-flex w-fit items-center rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
         Question {index + 1} of 10
-      </p>
-      <h2 className="text-2xl font-bold leading-tight">{question}</h2>
+      </span>
+      <h2 className="text-xl font-bold leading-snug">{question}</h2>
     </div>
   )
 }
