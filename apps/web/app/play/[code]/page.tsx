@@ -73,12 +73,12 @@ function PlayView({ code }: { code: string }) {
   }
 
   if (!name || room === undefined || room === null) {
-    return <div className="flex min-h-svh items-center justify-center text-muted-foreground">Loading...</div>
+    return <div className="flex flex-1 items-center justify-center text-muted-foreground">Loading...</div>
   }
 
   if (room.status === "waiting") {
     return (
-      <main className="flex min-h-svh flex-col items-center justify-center p-6 gap-6 text-center">
+      <main className="flex flex-1 flex-col items-center justify-center p-6 gap-6 text-center">
         <div className="flex flex-col items-center gap-2">
           <div className="relative flex size-16 items-center justify-center rounded-full bg-primary/15">
             <div className="absolute inset-0 animate-ping rounded-full bg-primary/20" />
@@ -98,7 +98,7 @@ function PlayView({ code }: { code: string }) {
 
   if (room.status === "finished") {
     return (
-      <main className="flex min-h-svh flex-col p-5 gap-6">
+      <main className="flex flex-1 flex-col p-5 gap-6">
         <div className="flex flex-col items-center gap-3 text-center pt-4">
           <h1 className="text-3xl font-bold">Game Over!</h1>
           <FinalScoreBoard score={room.score} />
@@ -130,7 +130,7 @@ function PlayView({ code }: { code: string }) {
   const hasVoted = myVote !== null && myVote !== undefined
 
   return (
-    <main className="flex min-h-svh flex-col p-5 gap-8">
+    <main className="flex flex-1 flex-col p-5 gap-8">
       {question && <QuestionCard question={question.question} index={question.index} />}
 
       {hasVoted ? (
@@ -157,7 +157,7 @@ export default function PlayPage() {
   const code = params.code as string
 
   return (
-    <Suspense fallback={<div className="flex min-h-svh items-center justify-center text-muted-foreground">Loading...</div>}>
+    <Suspense fallback={<div className="flex flex-1 items-center justify-center text-muted-foreground">Loading...</div>}>
       <PlayView code={code} />
     </Suspense>
   )

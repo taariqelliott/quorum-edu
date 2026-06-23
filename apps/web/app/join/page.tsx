@@ -87,7 +87,7 @@ function JoinForm() {
 
 export default function JoinPage() {
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center gap-8 p-6">
+    <main className="flex flex-1 flex-col items-center justify-center gap-8 p-6">
       <div className="text-center">
         <h1 className="text-4xl font-bold">Join Game</h1>
         <p className="mt-2 text-muted-foreground">

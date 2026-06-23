@@ -1,3 +1,4 @@
+import { NavBar } from "@/components/NavBar"
 import { ThemeProvider } from "@/components/theme-provider"
 import "@workspace/ui/globals.css"
 import { cn } from "@workspace/ui/lib/utils"
@@ -34,7 +35,10 @@ export default function RootLayout({
       <link rel="icon" href="/icon.png" sizes="any" />
       <body>
         <ConvexClientProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <NavBar />
+            <div className="flex flex-col">{children}</div>
+          </ThemeProvider>
         </ConvexClientProvider>
       </body>
     </html>

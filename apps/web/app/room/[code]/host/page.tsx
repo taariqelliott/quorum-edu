@@ -39,7 +39,7 @@ export default function HostView() {
 
   if (room === undefined || room === null) {
     return (
-      <div className="flex min-h-svh items-center justify-center text-muted-foreground">
+      <div className="flex flex-1 items-center justify-center text-muted-foreground">
         Loading...
       </div>
     )
@@ -47,7 +47,7 @@ export default function HostView() {
 
   if (room.status === "finished") {
     return (
-      <main className="flex min-h-svh flex-col items-center justify-center gap-6 p-8">
+      <main className="flex flex-1 flex-col items-center justify-center gap-6 p-8">
         <h1 className="text-3xl font-bold">Game Over!</h1>
         <FinalScoreBoard score={room.score} />
         {allQuestions && (
@@ -68,7 +68,7 @@ export default function HostView() {
   const isLastQuestion = room.currentQuestion === 9
 
   return (
-    <main className="mx-auto flex min-h-svh w-full max-w-3xl flex-col items-center gap-8 p-8">
+    <main className="mx-auto flex flex-1 w-full max-w-3xl flex-col items-center gap-8 p-8">
       <div className="flex w-full items-center justify-between gap-4">
         <ScoreBoard score={room.score} currentQuestion={room.currentQuestion} />
         <div className="flex gap-2">

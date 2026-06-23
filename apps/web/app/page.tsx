@@ -54,7 +54,7 @@ export default function Page() {
   }
 
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center p-6">
+    <main className="flex flex-1 flex-col items-center justify-center p-6">
       <div className="flex w-full max-w-xl flex-col gap-6">
         <div className="flex flex-col gap-3">
           <div>

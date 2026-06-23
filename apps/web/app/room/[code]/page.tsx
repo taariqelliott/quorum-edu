@@ -22,14 +22,14 @@ export default function WaitingRoom() {
 
   if (room === undefined) {
     return (
-      <div className="flex min-h-svh items-center justify-center text-muted-foreground">
+      <div className="flex flex-1 items-center justify-center text-muted-foreground">
         Loading...
       </div>
     )
   }
 
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center gap-8 p-8">
+    <main className="flex flex-1 flex-col items-center justify-center gap-8 p-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold">Waiting Room</h1>
         <p className="mt-1 text-muted-foreground">Students can join now</p>

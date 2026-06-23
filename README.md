@@ -1,21 +1,55 @@
-# shadcn/ui monorepo template
+# Quorum
 
-This is a Next.js monorepo template with shadcn/ui.
+An AI-powered live quiz game for classrooms. Teachers describe a topic, Quorum generates a 10-question game in seconds, and students join from their phones with a room code — no accounts or downloads required.
 
-## Adding components
+## How It Works
 
-To add components to your app, run the following command at the root of your `web` app:
+### For Teachers (Host)
+
+1. Go to the home page and describe what you want to teach (e.g. _"help my students learn about the American Revolution"_)
+2. Quorum uses AI to generate 10 multiple-choice questions on that topic
+3. A waiting room opens with a **QR code** and a **6-character room code** — share either with students
+4. Once students have joined, click **Start Game**
+5. Questions are shown one at a time on the host screen; advance to the next question manually after reviewing results
+6. At the end, a final score is shown
+
+### For Students (Players)
+
+1. Go to `/join` or scan the QR code
+2. Enter the room code and pick a display name (or shuffle for a random one)
+3. Wait for the teacher to start the game
+4. Each question shows 4 answer choices — tap to lock in your vote
+5. After voting, live results appear showing how the class answered
+6. After all 10 questions, an answer key recap is shown with correct answers and explanations
+
+## Game Rules
+
+- 10 questions per game, multiple choice with 4 options each
+- Each player can only vote once per question
+- Votes are anonymous — the host sees class-wide tallies, not individual answers
+- The game is paced by the teacher; students cannot advance questions themselves
+- No time limit per question (teacher decides when to move on)
+- Players who join late can still participate from the current question onward
+
+## Tech Stack
+
+- **Next.js** (App Router) — frontend
+- **Convex** — real-time backend, database, and live subscriptions
+- **Claude** (Haiku) — question generation via Anthropic SDK
+- **Tailwind CSS v4** + **shadcn/ui** — styling
+- **Space Grotesk** — typeface
+
+## Getting Started
 
 ```bash
-pnpm dlx shadcn@latest add button -c apps/web
+bun install
+bun dev
 ```
 
-This will place the ui components in the `packages/ui/src/components` directory.
+Set up the required environment variables:
 
-## Using components
-
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@workspace/ui/components/button";
+```env
+ANTHROPIC_API_KEY=
+CONVEX_DEPLOYMENT=
+NEXT_PUBLIC_CONVEX_URL=
 ```
