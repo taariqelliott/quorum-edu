@@ -29,7 +29,9 @@ export default defineSchema({
     correctAnswer: v.string(),
     definition: v.string(),
     example: v.string(),
-  }).index("by_room", ["roomCode"]),
+  })
+    .index("by_room", ["roomCode"])
+    .index("by_room_and_index", ["roomCode", "index"]),
 
   votes: defineTable({
     roomCode: v.string(),

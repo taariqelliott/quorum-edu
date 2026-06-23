@@ -28,6 +28,7 @@
   "dependencies": {
     "convex": "^1.41.0",
     "jspdf": "^4.2.1",
+    "lucide-react": "^1.21.0",
     "qrcode.react": "^4.2.0"
   }
 }

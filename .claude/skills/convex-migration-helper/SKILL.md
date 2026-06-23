@@ -106,14 +106,14 @@ Every breaking migration follows the same multi-deploy pattern:
 
 **Between deploys - Migrate data:**
 
-1. Run migration to backfill existing documents
-2. Verify all documents are migrated
+5. Run migration to backfill existing documents
+6. Verify all documents are migrated
 
 **Deploy 2 - Narrow the schema:**
 
-1. Update schema to require the new format only
-2. Remove code that handles the old format
-3. Deploy
+7. Update schema to require the new format only
+8. Remove code that handles the old format
+9. Deploy
 
 ## Using the Migrations Component
 
@@ -123,7 +123,7 @@ component. It handles batching, cursor-based pagination, state tracking, resume
 from failure, dry runs, and progress monitoring.
 
 See `references/migrations-component.md` for installation, setup, defining and
-running migrations directly with `bunx convex run migrations:myMigration`, dry
+running migrations directly with `npx convex run migrations:myMigration`, dry
 runs, status monitoring, and configuration options.
 
 ## Common Migration Patterns
@@ -168,8 +168,8 @@ covering:
 - [ ] Update code to write the new format for new documents
 - [ ] Deploy widened schema and updated code
 - [ ] Define migration using the `@convex-dev/migrations` component
-- [ ] Test with `bunx convex run migrations:myMigration '{"dryRun": true}'`
-- [ ] Run migration directly with `bunx convex run migrations:myMigration` and
+- [ ] Test with `npx convex run migrations:myMigration '{"dryRun": true}'`
+- [ ] Run migration directly with `npx convex run migrations:myMigration` and
       monitor status
 - [ ] Verify all documents are migrated
 - [ ] Update schema to require new format only
