@@ -1,10 +1,10 @@
 "use client"
 
-import { useQuery, useMutation } from "convex/react"
-import { api } from "@convex/api"
-import { useParams, useRouter } from "next/navigation"
-import { Button } from "@workspace/ui/components/button"
 import { QRCode } from "@/components/QRCode"
+import { api } from "@convex/api"
+import { Button } from "@workspace/ui/components/button"
+import { useMutation, useQuery } from "convex/react"
+import { useParams, useRouter } from "next/navigation"
 
 export default function WaitingRoom() {
   const params = useParams()
@@ -21,37 +21,45 @@ export default function WaitingRoom() {
   }
 
   if (room === undefined) {
-    return <div className="flex min-h-svh items-center justify-center text-muted-foreground">Loading...</div>
+    return (
+      <div className="flex min-h-svh items-center justify-center text-muted-foreground">
+        Loading...
+      </div>
+    )
   }
 
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center p-8 gap-8">
+    <main className="flex min-h-svh flex-col items-center justify-center gap-8 p-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold">Waiting Room</h1>
-        <p className="text-muted-foreground mt-1">Students can join now</p>
+        <p className="mt-1 text-muted-foreground">Students can join now</p>
       </div>
 
       <QRCode code={code} />
 
       <div className="text-center">
-        <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1">
+        <p className="mb-1 text-xs font-medium tracking-widest text-muted-foreground uppercase">
           Room Code
         </p>
-        <p className="text-5xl font-mono font-bold tracking-widest">{code}</p>
+        <p className="font-mono text-5xl font-bold tracking-widest">{code}</p>
       </div>
 
       <div className="w-full max-w-sm">
-        <p className="text-sm font-medium text-muted-foreground mb-2">
-          {players?.length ?? 0} student{players?.length !== 1 ? "s" : ""} joined
+        <p className="mb-2 text-sm font-medium text-muted-foreground">
+          {players?.length ?? 0} student{players?.length !== 1 ? "s" : ""}{" "}
+          joined
         </p>
-        <div className="flex flex-col gap-1 max-h-52 overflow-y-auto rounded-lg border p-2">
+        <div className="flex max-h-52 flex-col gap-1 overflow-y-auto rounded-lg border p-2">
           {players?.length === 0 && (
-            <p className="text-sm text-muted-foreground text-center py-4">
+            <p className="py-4 text-center text-sm text-muted-foreground">
               Waiting for students to join...
             </p>
           )}
           {players?.map((p) => (
-            <div key={p._id} className="rounded-md bg-muted px-3 py-2 text-sm font-mono">
+            <div
+              key={p._id}
+              className="rounded-md bg-muted px-3 py-2 font-mono text-sm"
+            >
               {p.name}
             </div>
           ))}

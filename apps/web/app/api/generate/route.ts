@@ -14,7 +14,10 @@ export async function POST(request: Request) {
 
     const questions = await generateQuestions(prompt)
     const code = await convex.mutation(api.rooms.createRoom, { prompt })
-    await convex.mutation(api.questions.storeQuestions, { roomCode: code, questions })
+    await convex.mutation(api.questions.storeQuestions, {
+      roomCode: code,
+      questions,
+    })
 
     return NextResponse.json({ code })
   } catch (err) {

@@ -11,6 +11,9 @@ export function QRCode({ code }: { code: string }) {
     setUrl(`${origin}/join?code=${code}`)
   }, [code])
 
-  if (!url) return <div className="h-[220px] w-[220px] rounded bg-muted animate-pulse" />
+  if (!url)
+    return (
+      <div className="h-[220px] w-[220px] animate-pulse rounded bg-muted" />
+    )
   return <QRCodeSVG value={url} size={220} />
 }

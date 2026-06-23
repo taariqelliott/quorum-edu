@@ -1,10 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import { Loader2 } from "lucide-react"
 import { Button } from "@workspace/ui/components/button"
 import { Textarea } from "@workspace/ui/components/textarea"
+import { Loader2 } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 
 const LOADING_MESSAGES = [
   "Generating your questions…",
@@ -46,17 +46,19 @@ export default function Page() {
       if (!res.ok) throw new Error(data.error)
       router.push(`/room/${data.code}`)
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Try again.")
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Try again."
+      )
       setLoading(false)
     }
   }
 
   return (
     <main className="flex min-h-svh flex-col items-center justify-center p-6">
-      <div className="w-full max-w-xl flex flex-col gap-6">
+      <div className="flex w-full max-w-xl flex-col gap-6">
         <div>
           <h1 className="text-5xl font-bold tracking-tight">Quorum</h1>
-          <p className="text-muted-foreground mt-2 text-lg">
+          <p className="mt-2 text-lg text-muted-foreground">
             Type a topic — AI generates a 10-question class game in seconds.
           </p>
         </div>
@@ -65,7 +67,7 @@ export default function Page() {
           placeholder='e.g. "help my students learn about fractions in a fun way"'
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          className="min-h-[120px] text-base resize-none bg-card border-border shadow-sm"
+          className="min-h-[120px] resize-none border-border bg-card text-base shadow-sm"
           disabled={loading}
         />
 

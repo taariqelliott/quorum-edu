@@ -27,6 +27,7 @@ export default function RootLayout({
         geist.variable
       )}
     >
+      <link rel="icon" href="/icon.png" sizes="any" />
       <body>
         <ConvexClientProvider>
           <ThemeProvider>{children}</ThemeProvider>
