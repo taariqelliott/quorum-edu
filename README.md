@@ -6,15 +6,15 @@ An AI-powered live quiz game for classrooms. Teachers describe a topic, Quorum g
 
 quo·​rum
 
-**pluralquorums *or* quora** [ˈkwȯr-ə](https://www.merriam-webster.com/dictionary/quorum?pronunciation&lang=en_us&dir=q&file=quora) 
+**pluralquorums *or* quora** [ˈkwȯr-ə](https://www.merriam-webster.com/dictionary/quorum?pronunciation&lang=en_us&dir=q&file=quora)
 
 **1:** the minimum number of officers or members of a body that is required to be present at a given meeting (as to transact business)
 
 ---
 
-# Test The App Out!
+## Test The App Out
 
-++**[quorum-edu.vercel.app](http://quorum-edu.vercel.app)**++
+[Quorum](https://quorum-edu.vercel.app)
 
 ### **Resources**
 
@@ -69,4 +69,3 @@ ANTHROPIC_API_KEY=
 CONVEX_DEPLOYMENT=
 NEXT_PUBLIC_CONVEX_URL=
 ```
-
