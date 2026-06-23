@@ -6,7 +6,7 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"],
-      "env": ["UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN"]
+      "env": ["UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN", "CONVEX_DEPLOYMENT", "CONVEX_URL", "CONVEX_SITE_URL", "ANTHROPIC_API_KEY"]
     },
     "lint": {
       "dependsOn": ["^lint"]

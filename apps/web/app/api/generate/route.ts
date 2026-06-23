@@ -1,5 +1,5 @@
 import { generateQuestions } from "@/lib/claude"
-import { generateRatelimit } from "@/app/api/redis"
+import { getGenerateRatelimit } from "@/app/api/redis"
 import { api } from "@convex/api"
 import { ConvexHttpClient } from "convex/browser"
 import { NextRequest, NextResponse } from "next/server"
@@ -9,7 +9,7 @@ const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
 export async function POST(request: NextRequest) {
   try {
     const ip = request.headers.get("x-forwarded-for") ?? "anonymous"
-    const { success } = await generateRatelimit.limit(ip)
+    const { success } = await getGenerateRatelimit().limit(ip)
     if (!success) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429 })
     }
