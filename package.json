@@ -26,6 +26,8 @@
     "packages/*"
   ],
   "dependencies": {
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.38.0",
     "convex": "^1.41.0",
     "jspdf": "^4.2.1",
     "lucide-react": "^1.21.0",
