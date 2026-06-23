@@ -2,7 +2,7 @@ import { NavBar } from "@/components/NavBar"
 import { ThemeProvider } from "@/components/theme-provider"
 import "@workspace/ui/globals.css"
 import { cn } from "@workspace/ui/lib/utils"
-import { Space_Grotesk, Geist_Mono } from "next/font/google"
+import { Geist_Mono, Space_Grotesk } from "next/font/google"
 import { ConvexClientProvider } from "./ConvexClientProvider"
 
 const spaceGrotesk = Space_Grotesk({
@@ -37,7 +37,9 @@ export default function RootLayout({
         <ConvexClientProvider>
           <ThemeProvider>
             <NavBar />
-            <div className="flex flex-col">{children}</div>
+            <div className="flex min-h-[calc(100svh-3rem)] flex-col">
+              {children}
+            </div>
           </ThemeProvider>
         </ConvexClientProvider>
       </body>
