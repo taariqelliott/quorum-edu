@@ -46,7 +46,8 @@ Rules:
   })
 
   const block = message.content[0]
-  const text = block?.type === "text" ? block.text : "[]"
+  const raw = block?.type === "text" ? block.text : "[]"
+  const text = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "")
   return JSON.parse(text) as Question[]
 }
 
