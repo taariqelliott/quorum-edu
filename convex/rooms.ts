@@ -99,6 +99,7 @@ async function questionWasCorrect(
     }
   }
 
+  if (maxVotes === 0) return false
   return winner === question.correctAnswer
 }
 

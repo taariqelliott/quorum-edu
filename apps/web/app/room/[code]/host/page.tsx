@@ -50,6 +50,9 @@ export default function HostView() {
       <main className="flex flex-1 flex-col items-center justify-center gap-6 p-8">
         <h1 className="text-3xl font-bold">Game Over!</h1>
         <FinalScoreBoard score={room.score} />
+        <Button>
+          <Link href="/">Start A New Game</Link>
+        </Button>
         {allQuestions && (
           <RecapPDF
             roomCode={code}
@@ -58,9 +61,6 @@ export default function HostView() {
             questions={allQuestions}
           />
         )}
-        <Button>
-          <Link href="/">Start A New Game</Link>
-        </Button>
       </main>
     )
   }
@@ -68,7 +68,7 @@ export default function HostView() {
   const isLastQuestion = room.currentQuestion === 9
 
   return (
-    <main className="mx-auto flex flex-1 w-full max-w-3xl flex-col items-center gap-8 p-8">
+    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center gap-8 p-8">
       <div className="flex w-full items-center justify-between gap-4">
         <ScoreBoard score={room.score} currentQuestion={room.currentQuestion} />
         <div className="flex gap-2">
