@@ -103,7 +103,7 @@ function PlayView({ code }: { code: string }) {
           <h1 className="text-3xl font-bold">Game Over!</h1>
           <FinalScoreBoard score={room.score} />
         </div>
-        <div className="flex flex-col gap-1 pb-2">
+        <div className="flex flex-col gap-3 pb-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground px-1 mb-2">
             Answer Key
           </p>

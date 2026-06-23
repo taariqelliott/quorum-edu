@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
+import { Moon, Sun } from "lucide-react"
 
 function ThemeProvider({
   children,
@@ -17,6 +18,7 @@ function ThemeProvider({
     >
       <ThemeHotkey />
       {children}
+      <ThemeToggle />
     </NextThemesProvider>
   )
 }
@@ -66,6 +68,27 @@ function ThemeHotkey() {
   }, [resolvedTheme, setTheme])
 
   return null
+}
+
+function ThemeToggle() {
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
+
+  const isDark = resolvedTheme === "dark"
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label="Toggle theme"
+      className="fixed top-4 right-4 z-50 flex size-10 items-center justify-center rounded-full border border-border bg-card shadow-md transition-colors hover:bg-accent"
+    >
+      {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+    </button>
+  )
 }
 
 export { ThemeProvider }

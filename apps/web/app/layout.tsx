@@ -1,10 +1,14 @@
 import { ThemeProvider } from "@/components/theme-provider"
 import "@workspace/ui/globals.css"
 import { cn } from "@workspace/ui/lib/utils"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Space_Grotesk, Geist_Mono } from "next/font/google"
 import { ConvexClientProvider } from "./ConvexClientProvider"
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700"],
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -24,7 +28,7 @@ export default function RootLayout({
         "antialiased",
         fontMono.variable,
         "font-sans",
-        geist.variable
+        spaceGrotesk.variable
       )}
     >
       <link rel="icon" href="/icon.png" sizes="any" />

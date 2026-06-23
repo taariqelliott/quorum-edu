@@ -58,15 +58,15 @@ export default function Page() {
       <div className="flex w-full max-w-xl flex-col gap-6">
         <div className="flex flex-col gap-3">
           <div>
-            <span className="inline-block rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+            <span className="inline-block rounded-full bg-primary text-primary-foreground dark:bg-primary/15 dark:text-primary px-3 py-1 text-xs font-semibold uppercase tracking-widest">
               For educators
             </span>
           </div>
-          <h1 className="text-5xl font-bold tracking-tight">Quorum</h1>
-          <p className="text-lg text-muted-foreground">
+          <h1 className="text-6xl font-bold tracking-tight">Quorum</h1>
+          <p className="text-lg font-medium text-muted-foreground">
             Turn any lesson topic into a live multiplayer quiz in seconds.
           </p>
-          <p className="text-sm text-muted-foreground/80 leading-relaxed">
+          <p className="text-sm text-muted-foreground/70 leading-relaxed">
             Describe what you want to teach. AI builds 10 questions instantly.
             Students join on their phones with a room code. No accounts, no downloads.
           </p>
