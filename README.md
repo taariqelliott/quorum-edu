@@ -6,7 +6,7 @@ An AI-powered live quiz game for classrooms. Teachers describe a topic, Quorum g
 
 quo·​rum
 
-**pluralquorums *or* quora** [ˈkwȯr-ə](https://www.merriam-webster.com/dictionary/quorum?pronunciation&lang=en_us&dir=q&file=quora)
+**plural quorums *or* quora** [ˈkwȯr-ə](https://www.merriam-webster.com/dictionary/quorum?pronunciation&lang=en_us&dir=q&file=quora)
 
 **1:** the minimum number of officers or members of a body that is required to be present at a given meeting (as to transact business)
 
