@@ -68,8 +68,7 @@ export default function Page() {
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground/70">
             Describe what you want to teach. AI builds 10 questions instantly.
-            Students join on their phones with a room code. No accounts, no
-            downloads.
+            Students join on their phones with a room code or can scan the QR code.
           </p>
         </div>
 
