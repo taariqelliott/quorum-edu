@@ -9,7 +9,7 @@ export const joinRoom = mutation({
       .withIndex("by_code", (q) => q.eq("code", args.roomCode))
       .unique()
     if (!room) throw new Error("Room not found")
-    if (room.status !== "waiting") throw new Error("This game has already started")
+    // if (room.status !== "waiting") throw new Error("This game has already started")
 
     const existing = await ctx.db
       .query("players")
