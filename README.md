@@ -12,7 +12,9 @@ quo·​rum
 
 ---
 
-## Test The App Out
+## IMPORTANT
+
+### In order to test the app out, you'll need to clone it locally and use your own Claude API key
 
 ### [Quorum](https://quorum-edu.vercel.app)
 
